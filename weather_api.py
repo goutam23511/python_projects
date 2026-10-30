@@ -11,9 +11,15 @@ params={
 ans=requests.get(geo_coding,params)
 pack=ans.json()
 
+if user in pack:
+    lat=pack['results'][0]['latitude']
+    long=pack['results'][0]['longitude']
 
-lat=pack['results'][0]['latitude']
-long=pack['results'][0]['longitude']
+else:
+    print("Country not found.....ERROR")
+    exit()
+
+
 
 
 web=("https://api.open-meteo.com/v1/forecast")
